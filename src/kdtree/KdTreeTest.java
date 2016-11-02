@@ -18,6 +18,18 @@ public class KdTreeTest {
 	}
 	
 	@Test
+
+	public void testKdTree(){
+		KdTree<Point2i> tree = new KdTree(5);
+		Point2i p = new Point2i(2,3);
+		assertEquals("There is currently any point",0,tree.nb_points());
+		assertEquals("The dimension of the tree is five",5,tree.dimension());
+		assertFalse("Error, La liste est vide",tree.contains(p));
+		tree.insert(p);
+		assertTrue("La liste contient le point", tree.contains(p));
+		assertEquals("There is now 1 point store in the tree",1,tree.nb_points());
+
+	}
 	public void testNearestNeighbor() {
 
 		// Init vector of points
