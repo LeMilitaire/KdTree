@@ -49,7 +49,7 @@ public class Main
                 }
             }
             //Creation of the tree
-            KdTree<Point3i> tree = new KdTree<Point3i>(3,pixelColor,2^max_depth);
+            KdTree<Point3i> tree = new KdTree<Point3i>(3,pixelColor,1<<max_depth);
 
             // Get the color of the palette
             ArrayList<Point3i> palette_colors = new ArrayList<Point3i>();
@@ -63,7 +63,7 @@ public class Main
                 ++i;
 
             }
-            KdTree<RefColor> paletteTree = new KdTree<RefColor>(3,tmp_palette,2^max_depth);
+            KdTree<RefColor> paletteTree = new KdTree<RefColor>(3,tmp_palette,1<<max_depth);
             int v_id[] = new int[imgHeight*imgWidth];
             for( int j = 0 ; j < pixelColor.size() ; j++){
                 RefColor rColor = paletteTree.getNN(new RefColor(pixelColor.get(j), 1));
